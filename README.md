@@ -4,15 +4,6 @@ A low-level MicroPython BLE UART peripheral manager inspired by the official [bl
 >[!Note]
 >This library was created using MicroPython V1.28.0
 
-# Features
-- I've tested this using Android, not sure if it works on Iphone
-- 
-# About this repository
-This repository contains the following:
-- lib/
-- doc/
-- examples/
-
 
 # Bluetooth Data Collection - SOP
 Before starting, ensure the **Bluetooth library is installed on the Pico Pi W** and that your main script includes the required Bluetooth initialization lines.
