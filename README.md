@@ -109,6 +109,9 @@ file_passwords = {
  
 ble_mgr = BLEManager(spi, cs, file_passwords) 
 ```
+>[!Note]
+>The below is for a project I did for the USDA Sensor Group, so please ignore the below unless you are looking at this repository regarding the Bumble Bee Transport Project.
+
 **Then place this in the main loop before the comment "check for restart request". Make sure it is lined up with the code below that comment.**
 
 ```python
