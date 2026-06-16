@@ -11,10 +11,20 @@ Before starting, ensure the **Bluetooth library is installed on the Pico Pi W** 
 
 # Project Structure
 ```
-lib/
-| - 
+main.py
 |
+ble_manager.py
 |
+log_manager.py
+|
+SD_Card.py
+|
+sensors.py
+└── lib/
+    └── sdcard-0.2.0.dist-info/
+|   |   ├── METADATA
+|   |   └── RECORD
+|   ├── sdcard.py
 ```
 
 ## Step 1:
