@@ -9,8 +9,7 @@
 # into spreadsheet applications such as Microsoft Excel,
 # LibreOffice Calc, and Google Sheets.
 #
-# This file is part of Sophia J Anderson's environmental
-# monitoring project.
+# This file is part of Sophia J Anderson's & Nolan Hoffs environmental monitoring project.
 
 import time
 
