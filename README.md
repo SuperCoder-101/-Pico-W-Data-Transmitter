@@ -70,7 +70,7 @@ Make sure to look from **left to right** when referring to the photos below (**d
 
 **Code needed**:
 - ble_manager.py
-**Then place this code at the beginning of the main.py file (aka after all the imports)
+Then place this code at the beginning of the main.py file (aka after all the imports)
 
 ### Example Code:
 ```python
