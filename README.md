@@ -22,9 +22,9 @@ SD_Card.py
 sensors.py
 └── lib/
     └── sdcard-0.2.0.dist-info/
-|   |   ├── METADATA
-|   |   └── RECORD
-|   ├── sdcard.py
+    |   ├── METADATA
+    |   └── RECORD
+    ├── sdcard.py
 ```
 
 ## Step 1:
