@@ -116,4 +116,11 @@ ble_mgr = BLEManager(spi, cs, file_passwords)
 ```
 
 
+# Project Structure
+```
+lib/
+| - 
+|
+|
+```
 
