@@ -4,8 +4,13 @@ A low-level MicroPython BLE UART peripheral manager inspired by the official [bl
 >[!Note]
 >This library was created using MicroPython V1.28.0
 
-
 # Features
+
+# About this repository
+This repository contains the following:
+- lib/
+- doc/
+- examples/
 
 
 # Bluetooth Data Collection - SOP
