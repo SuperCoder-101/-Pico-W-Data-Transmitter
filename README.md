@@ -1,138 +1,99 @@
-# Pico-W-Data-Transmitter
-A low-level MicroPython BLE UART peripheral manager inspired by the official [ble_simple_peripheral.py](https://github.com/micropython/micropython/blob/master/examples/bluetooth/ble_simple_peripheral.py) example, with aioble-style organization, plus SD-card-backed command/file transfer logic.
+# Pico-W Data Transmitter
 
->[!Note]
->This library was created using MicroPython V1.28.0
+## Overview
 
+The Pico-W Data Transmitter is a MicroPython-based Bluetooth Low Energy (BLE) data transfer framework developed for the Raspberry Pi Pico W.
 
-# Bluetooth Data Collection - SOP
-Before starting, ensure the **Bluetooth library is installed on the Pico Pi W** and that your main script includes the required Bluetooth initialization lines.
+This project is based on MicroPython's [`ble_simple_peripheral.py`](https://github.com/micropython/micropython/blob/master/examples/bluetooth/ble_simple_peripheral.py) example, reorganized with an aioble-style structure and expanded with SD-card-backed command and file transfer logic.
 
+The repository provides BLE UART communication, password-protected file retrieval, SD card data access, log management utilities, and sensor integration support for embedded data collection projects.
 
-# Project Structure
-```
-main.py
-|
-ble_manager.py
-|
-log_manager.py
-|
-SD_Card.py
-|
-sensors.py
+---
+
+## Features
+
+* BLE UART communication
+* SD-card-backed file transfer
+* Password-protected file retrieval
+* Log file management
+* Sensor data collection support
+* Raspberry Pi Pico W compatibility
+* MicroPython-based implementation
+* Lightweight embedded design
+
+---
+
+## Repository Structure
+
+```text
+Pico-W-Data-Transmitter/
+├── README.md
+├── LICENSE
+├── main.py
+├── ble_manager.py
+├── log_manager.py
+├── SD_Card.py
+├── sensors.py
+├── docs/
+│   ├── Ble_Manager_Info.docx
+│   └── Bluetooth_SOP.docx
 └── lib/
-    └── sdcard-0.2.0.dist-info/
-    |   ├── METADATA
-    |   └── RECORD
-    ├── sdcard.py
+    └── sdcard.py
 ```
 
-## Step 1:
-Download **Serial Bluetooth Terminal** from the App Store. 
+---
 
-This is free!
+## File Descriptions
 
-<img width="425" height="401" alt="image" src="https://github.com/user-attachments/assets/04ed6f6e-0f91-4072-821e-550ec6e3f1ca" />
+| File             | Description                                                        |
+| ---------------- | ------------------------------------------------------------------ |
+| `main.py`        | Example application entry point                                    |
+| `ble_manager.py` | BLE UART peripheral manager with command and file transfer support |
+| `log_manager.py` | Log file creation and management utilities                         |
+| `SD_Card.py`     | SD card mounting, writing, and file access support                 |
+| `sensors.py`     | Sensor integration and data collection support                     |
+| `lib/sdcard.py`  | MicroPython SD card driver                                         |
 
-## Step 2:
-Open **Serial Bluetooth Terminal.**
+---
 
-## Step 3:
-Tap the **three-line menu** in the upper-left corner.
+## Requirements
 
-<img width="442" height="384" alt="image" src="https://github.com/user-attachments/assets/8e7ead4a-1c5c-49ad-b3a8-2294bd71182e" />
+* Raspberry Pi Pico W
+* MicroPython
+* Bluetooth-capable phone, tablet, or computer
+* MicroSD card module
+* Optional connected sensors
 
-## Step 4:
-Select the **Devices** tab.
+---
 
-<img width="452" height="484" alt="image" src="https://github.com/user-attachments/assets/8d20c013-5542-4a80-b82e-4352ec7d7c20" />
+## Bluetooth Workflow
 
-## Step 5:
-Choose **Bluetooth LE**, then press **Scan**.
-- Your Pico device should appear after the scan completes.
+1. The Pico W advertises as a BLE peripheral.
+2. A client device connects over BLE UART.
+3. The client sends a command or password.
+4. The Pico W checks the command against available log files.
+5. Matching files are read from the SD card.
+6. Data is sent wirelessly over BLE notifications.
 
-<img width="464" height="498" alt="image" src="https://github.com/user-attachments/assets/e58b0393-9321-4c08-b72e-e4b0ad63a416" />
+---
 
-## Step 6:
-Return to the **Terminal** screen and choose one of the **macro buttons** above the input line.
-- **Hold down** on the macro to edit it.
+## Documentation
 
-<img width="448" height="478" alt="image" src="https://github.com/user-attachments/assets/66e88aeb-d087-4e73-999c-f53f112f54a5" />
+Additional documentation is available in the `docs/` folder:
 
-## Step 7:
-Rename the macro based on the data you are collecting.
-Update the macro **value** to match the password you assigned for that data type.
-- The password can be edited inside the Bluetooth script.
+* `Ble_Manager_Info.docx`
+* `Bluetooth_SOP.docx`
 
-<img width="429" height="488" alt="image" src="https://github.com/user-attachments/assets/c45dc63a-27e2-4514-9f9d-91a4698c3fce" />
+---
 
-## Step 8:
-Go back to the Terminal and **tap** your newly labeled macro once (do not hold). 
-- Data will only appear after it has been written to the Pico's log file.
-- If the log file has no data yet, the macro command will not return anything.
+## License
 
-## Step 9:
-Once you have collected your data, tap the **three horizontal dots** in the upper-right corner of the Terminal page.
+This project is licensed under the MIT License.
 
-You have two options:
-- **Data Tab**:
-  - Tap **Save** to store the file in your phone's default location.
-  - Tap **Export** to choose a specific folder or app to save your data.
+See the `LICENSE` file for more information.
 
-- **Configuration Tab**:
-  - Allows you to adjust app settings if needed.
+---
 
-Make sure to look from **left to right** when referring to the photos below (**do not** look at the top left picture first, then the bottom left, it should be **top left -> top right -> bottom left -> bottom right** in that order)
+## Author
 
-<img width="464" height="447" alt="image" src="https://github.com/user-attachments/assets/e5ead50b-f0c2-4066-aad4-74225bacbaca" />
-<img width="490" height="447" alt="image" src="https://github.com/user-attachments/assets/74c9be24-ebe8-4822-9dbd-77a5af46706f" />
-<img width="472" height="461" alt="image" src="https://github.com/user-attachments/assets/2ad5a6b7-efa1-4b7c-842e-5548b4bec755" />
-<img width="478" height="461" alt="image" src="https://github.com/user-attachments/assets/222c8a78-1629-40d8-9275-c63d4f64ad9f" />
-
-**Code needed**:
-- ble_manager.py
-  
-**Then place this code at the beginning of the main.py file (aka after all the imports)**
-
-### Example Code:
-```python
-from ble_manager import BLEManager 
- 
-# SPI setup (matches your existing wiring) 
-spi = SPI(1, 
-    baudrate=1_000_000, 
-    polarity=0, 
-    phase=0, 
-    bits=8, 
-    firstbit=SPI.MSB, 
-    sck=Pin(10), 
-    mosi=Pin(11), 
-    miso=Pin(8)) 
- 
-cs = Pin(9, Pin.OUT) 
- 
-file_passwords = { 
-    "INA219": "/sd/ina219_log.csv", 
-    "ENV": "/sd/environment_log.csv", 
-    "VIB": "/sd/vibration_log.csv", 
-    "XYZ": "/sd/xyz_log.csv", 
-    "HEART": "/sd/heartbeat.txt", 
-    "MEM": "/sd/mem_log.txt", 
-} 
- 
-ble_mgr = BLEManager(spi, cs, file_passwords) 
-```
->[!Note]
->The below is for a project I did for the USDA Sensor Group, so please ignore the below unless you are looking at this repository regarding the Bumble Bee Transport Project.
-
-**Then place this in the main loop before the comment "check for restart request". Make sure it is lined up with the code below that comment.**
-
-```python
-        # Update BLE Manager 
-        if ble_mgr: 
-            try: 
-                ble_mgr.update()  # This handles file transfers 
-            except Exception as e: 
-                log_sensor_error("BLE_UPDATE", e, context="main_loop")         
-```
-
+Sophia J. Anderson
